@@ -1,0 +1,89 @@
+Document Processing System (AI-Powered)
+- A full-stack AI document processing pipeline that supports:
+    - File Upload
+    - OCR + Classification
+    - Data Extraction
+    - Validation & Warnings
+    - Smart Dashboard (Analytics)
+    - MongoDB Atlas storage
+
+This project contains:
+- Node.js Backend → Uploads files, calls Python service, stores results in MongoDB, broadcasts notifications
+- Python FastAPI Service → OCR, classification, extraction, validation
+- Dashboard API → Analytics
+- MongoDB Atlas → Stores processed document metadata
+
+
+POST /api/documents/upload
+    - Uploads a document file to the server.
+    - https://prnt.sc/gJCjuyn2yZ04
+
+POST /api/documents/classify
+    - Uploads a document file and returns the predicted document type (e.g., invoice, receipt, contract).
+    - https://prnt.sc/Q31rsBKutD1Q
+    -
+
+POST /api/documents/analyze
+    - Uploads a document and performs analysis such as text extraction, OCR, or structure detection.
+    - https://prnt.sc/0ZCga-hmBtBF
+
+POST /api/documents/extract
+    - Extracts key information from a document (e.g., totals, dates, fields).
+    - https://prnt.sc/UyAAadal_NYz
+
+
+Document Processing System - Setup Guide
+
+
+Run:
+Clone the repository
+cd document-processing-system
+
+Start the Python OCR Service
+
+Go to folder:
+document-processing-system\python-services
+
+Run the virtual environment:
+..venv\Scripts\activate
+
+Start the FastAPI server:
+python -m uvicorn main:app --reload --port 8000
+
+The Python service will run at:
+http://localhost:8000
+
+http://localhost:8000/docs
+
+Start the Backend (Node.js)
+
+Go to folder:
+document-processing-system\backend
+
+Start the server:
+node server.js
+
+The backend will run at:
+http://localhost:5000
+
+Start the Frontend (React App)
+
+Go to folder:
+document-processing-system\frontend
+
+If first time:
+npm install
+
+Start React:
+npm start
+
+The frontend will run at:
+http://localhost:3000
+
+System Overview
+
+Frontend (React) on port 3000
+Backend (Node.js) on port 5000
+Python Processing Service (FastAPI) on port 8000
+
+All three must be running at the same time.
